@@ -2,7 +2,7 @@ import logging
 from aiogram import Bot, Dispatcher, executor, types
 from oyun import MafiaGame
 
-TOKEN = "8300955831:AAFbm91Fy0tNM_S0Qp1vepQqyt-3jhb4gjU"  # Token buraya birbaşa əlavə edilir
+TOKEN = "8300955831:AAFbm91Fy0tNM_S0Qp1vepQqyt-3jhb4gjU"  # Token birbaşa kodda
 
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=TOKEN)
@@ -38,21 +38,21 @@ async def cmd_sesver(msg: types.Message):
 async def cmd_oyuncular(msg: types.Message):
     await game.show_players(msg)
 
-@dp.message_handler(commands=['rolsiyahi'])
-async def cmd_rolsiyahi(msg: types.Message):
-    await game.show_roles(msg)
+@dp.message_handler(commands=['legv'])
+async def cmd_legv(msg: types.Message):
+    await game.cancel_game(msg)
 
 @dp.message_handler(commands=['yardim'])
 async def cmd_yardim(msg: types.Message):
     await msg.answer("""
 📜 Komandalar:
-/oyun - Yeni oyun yarad
-/qosul - Oyuna qoşul
-/basla_oyun - Oyunu başlat
-/rolum - Rolunu göstər
-/sesver @istifadeci - Kimisə öldürməyə səs ver
+/oyun - Yeni oyun yaradın
+/qosul - Oyuna qoşulun
+/basla_oyun - Oyunu başlatın
+/rolum - Rolunuzu görün
+/sesver @istifadeci - Kimisə öldürmək üçün səs verin
 /oyuncular - Oyunçuların siyahısı
-/rolsiyahi - Rol siyahısını göstər
+/legv - Oyunu ləğv edin
 """)
 
 if __name__ == '__main__':
