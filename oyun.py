@@ -20,8 +20,8 @@ class MafiaGame:
         self.heal_target = None
         self.kill_targets = []
         self.investigate_targets = []
-        self.psychopath_target = None
-        self.curse_target = None
+        # self.psychopath_target = None
+        # self.curse_target = None
 
     async def new_game(self, msg: types.Message):
         if self.state != "waiting":
@@ -66,8 +66,8 @@ class MafiaGame:
             emoji = rolu_gore_emoji(role)
             try:
                 await self.bot.send_message(uid, f"🎭 Sənin rolun: *{role}* {emoji}\n\n{desc}", parse_mode="Markdown")
-            except:
-                pass
+            except Exception as e:
+                logging.error(f"Mesaj göndərilərkən xəta baş verdi {uid}: {e}")
 
         await asyncio.sleep(3)
         await self.start_day()
@@ -109,8 +109,8 @@ class MafiaGame:
         self.kill_targets = []
         self.heal_target = None
         self.investigate_targets = []
-        self.psychopath_target = None
-        self.curse_target = None
+        # self.psychopath_target = None
+        # self.curse_target = None
         await self.broadcast("🌚 *Gecə başladı!*\nRollar öz fəaliyyətlərini yerinə yetirə bilər.")
         if self.night_task:
             self.night_task.cancel()
@@ -147,8 +147,8 @@ class MafiaGame:
                     polis_id = [uid for uid, r in self.roles.items() if r == "Polis"]
                     if polis_id:
                         await self.bot.send_message(polis_id[0], msg)
-                except:
-                    pass
+                except Exception as e:
+                    logging.error(f"Polise mesaj göndərilərkən xəta baş verdi: {e}")
 
         # Aşiqlər - əgər biri ölsə digəri də ölər
         for lover in self.lovers:
@@ -220,5 +220,5 @@ class MafiaGame:
         for uid in self.players:
             try:
                 await self.bot.send_message(uid, text, parse_mode="Markdown")
-            except:
-                pass
+            except Exception as e:
+                logging.error(f"Mesaj göndərilərkən xəta baş verdi {uid}: {e}")
