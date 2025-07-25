@@ -7,9 +7,9 @@ ROLLAR = [
     "Doktor",
     "Sakin",
     "Aşiqlər",
-    "Serial Killer",
-    "Psixopat",
-    "Caduçu"
+    # "Serial Killer",
+    # "Psixopat",
+    # "Caduçu"
 ]
 
 ROLE_EMOJILAR = {
@@ -64,3 +64,4 @@ def assign_roles(players):
         assigned["aşiqlər"] = lovers
 
     return assigned
+    
