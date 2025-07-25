@@ -2,7 +2,7 @@ import logging
 from aiogram import Bot, Dispatcher, executor, types
 from oyun import MafiaGame
 
-TOKEN = "8300955831:AAFbm91Fy0tNM_S0Qp1vepQqyt-3jhb4gjU"  # Token birbaşa kodda
+TOKEN = "8300955831:AAFbm91Fy0tNM_S0Qp1vepQqyt-3jhb4gjU"  # Güvenlik Uyarısı: Token doğrudan kodda saklanmamalı, ortam değişkenleri kullanılmalı.
 
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=TOKEN)
